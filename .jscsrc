@@ -1,0 +1,11 @@
+{
+  "excludeFiles": ["node_modules/**"],
+  "esnext": true,
+  "preset": "node-style-guide",
+  "maximumLineLength": null,
+  "requireCapitalizedComments": null,
+  "disallowQuotedKeysInObjects": null,
+  "validateLineBreaks": null,
+  "disallowTrailingComma": true,
+  "requireTrailingComma": null
+}
