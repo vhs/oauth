@@ -154,4 +154,4 @@ app.get('/health', (req, res) => {
  
 app.use(app.oauth.errorHandler());
  
-app.listen(nconf.get('port'));
+app.listen(nconf.get('port'), '0.0.0.0');
