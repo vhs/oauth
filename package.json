@@ -4,6 +4,7 @@
   "description": "vhs oauth provider",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha --recursive tests"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/vhs/oauth#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "bunyan": "^1.8.1",
     "express": "^4.14.0",
     "nconf": "^0.8.4",
