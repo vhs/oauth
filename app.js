@@ -97,7 +97,8 @@ const vhsoauth = require('./lib/oauth/base')({
 app.oauth = oauthserver({
   model: vhsoauth, // See below for specification
   grants: ['password'],
-  debug: true
+  debug: true,
+  clientIdRegex: /^[a-z0-9-_]{1,40}$/i
 });
  
 app.all('/oauth/token', app.oauth.grant());
@@ -118,7 +119,7 @@ function login(){
         url: "/oauth/token",
         //Add the request header
         headers: {
-            Authorization: 'Basic ' + window.btoa('someclientid:someclientsecret base64')
+            Authorization: 'Basic ' + window.btoa('clientid:clientsecret')
         },
         contentType: 'application/x-www-form-urlencoded',
         data: {
