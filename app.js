@@ -119,7 +119,7 @@ function login(){
         url: "/oauth/token",
         //Add the request header
         headers: {
-            Authorization: 'Basic ' + window.btoa('clientid:clientsecret')
+            Authorization: 'Basic ' + window.btoa($("#clientid").val() + ':' + $("#secret").val())
         },
         contentType: 'application/x-www-form-urlencoded',
         data: {
@@ -128,21 +128,59 @@ function login(){
             password: $("#password").val()
         },
         success: function(response) {
-            console.log(response);
+            $("#token").html(JSON.stringify(response));
         },
         error: function(xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
-            console.log(err);
+            $("#token").html(JSON.stringify(err));
         }
     });
 }
 </script>
+<style>
+fieldset {
+    width: 300px;
+    float: left;
+}
+label {
+    display: block;
+    width: 300px;
+    clear: both;
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+label input {
+    float: right;
+    margin-left: 5px;
+    width: 200px;
+}
+fieldset > input {
+    float: right;
+    margin-top: 5px;
+    border: solid 2px black;
+    padding: 10px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+</style>
 </head>
 <body>
+<h2>OAuth2 Token Auth</h2>
 <form>
-<input type="text" id="username"/>
-<input type="password" id="password"/>
-<input type="button" onclick="login()" value="Submit">
+<fieldset>
+<label>Client ID:<input type="text" id="clientid" /></label>
+<label>Client Secret:<input type="text" id="secret" /></label>
+<label>Username:<input type="text" id="username"/></label>
+<label>Password:<input type="password" id="password"/></label>
+<input type="button" onclick="login()" value="Token >"> <br/>
+</fieldset>
+</form>
+<form>
+<fieldset>
+<div id="token"></div>
+</fieldset>
 </form>
 </body>
 </html>
