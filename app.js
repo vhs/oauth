@@ -96,7 +96,7 @@ const vhsoauth = require('./lib/oauth/base')({
  
 app.oauth = oauthserver({
   model: vhsoauth, // See below for specification
-  grants: ['password'],
+  grants: ['password', 'refresh_token'],
   debug: true,
   clientIdRegex: /^[a-z0-9-_]{1,40}$/i
 });
