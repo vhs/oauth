@@ -32,7 +32,7 @@ nconf.argv({
 .env()
 .file('config.json')
 .defaults({
-    'nomos': 'https://membership.hackspace.ca',
+    'nomos': 'https://membership.vanhack.ca',
     'nomostoken': 'invalid',
     'port': 3000,
     'loglevel': 'debug',
