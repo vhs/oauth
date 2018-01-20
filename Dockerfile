@@ -1,9 +1,11 @@
 FROM node:6.3.1
 
-ADD . /var/app/
+WORKDIR /var/app
 
 EXPOSE 3000
 
-WORKDIR /var/app
+ADD . /var/app/
+
+RUN cd /var/app/ && npm install --production
 
 CMD npm start
